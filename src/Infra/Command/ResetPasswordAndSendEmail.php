@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Infra\Command;
 
 use App\AuthService\User\ResetPasswordService;
 use Symfony\Component\Console\Command\Command;

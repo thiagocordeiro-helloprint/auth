@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Repository;
+namespace App\Infra\Repository;
 
 use App\AuthService\User\User;
 use App\AuthService\User\UserRepository;
@@ -33,5 +33,18 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
 
         $entityManager->persist($user);
         $entityManager->flush();
+    }
+
+    /**
+     * @return User[]
+     */
+    public function findInactive(): array
+    {
+        // TODO: Implement findInactive() method.
+    }
+
+    public function saveUsers(User ...$users): void
+    {
+        // TODO: Implement saveUsers() method.
     }
 }
