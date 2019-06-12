@@ -7,8 +7,17 @@ use App\AuthService\User\UserRepository;
 
 class FakeUserRepository implements UserRepository
 {
-    private const ID = '123-abc';
+    private const USERNAME = 'hellorprint';
     private const EMAIL = 'user@localhost';
+    private const PASSWORD = '$2y$10$UffaUPAEJKA03G7YG76vn.fkCESo.wuaSCTYWviLWsgF7AbpPKmNC';
+    private const STATUS = 1;
+
+    private User $user;
+
+    public function __construct()
+    {
+        $this->user = new User(self::USERNAME, self::EMAIL, self::STATUS, self::PASSWORD);
+    }
 
     public function findByEmail(string $email): ?User
     {
@@ -16,6 +25,31 @@ class FakeUserRepository implements UserRepository
             return null;
         }
 
-        return new User(self::ID, self::EMAIL);
+        return $this->user;
+    }
+
+    public function inactivateUser(User $user): void
+    {
+        $user->disable();
+    }
+
+    public function getFakeUser(): User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function findInactive(): array
+    {
+        $this->user->disable();
+
+        return [$this->user];
+    }
+
+    public function saveUsers(User ...$users): void
+    {
+        return;
     }
 }

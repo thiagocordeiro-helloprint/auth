@@ -10,24 +10,26 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class FindUserByEmailController
 {
-    private UserService $repository;
+    private UserService $service;
 
     public function __construct(UserService $repository)
     {
-        $this->repository = $repository;
+        $this->service = $repository;
     }
 
     public function __invoke(string $email): JsonResponse
     {
         try {
-            $user = $this->repository->findByEmail($email);
+            $user = $this->service->findByEmail($email);
         } catch (UserNotFoundByEmailException $e) {
             throw new HttpException(Response::HTTP_NOT_FOUND, $e->getMessage(), $e);
         }
 
         return new JsonResponse([
             'id' => $user->getId(),
+            'username' => $user->getUsername(),
             'email' => $user->getEmail(),
+            'active' => $user->isActive(),
         ]);
     }
 }

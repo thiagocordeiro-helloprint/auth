@@ -24,4 +24,14 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
     {
         return $this->findOneBy(['email' => $email]);
     }
+
+    public function inactivateUser(User $user): void
+    {
+        $entityManager = $this->getEntityManager();
+
+        $user->disable();
+
+        $entityManager->persist($user);
+        $entityManager->flush();
+    }
 }

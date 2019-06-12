@@ -1,3 +1,7 @@
 index:
     path: /api/users/{email}
     controller: App\Controller\User\FindUserByEmailController
+
+password_reset:
+    path: /api/users/{email}/password-reset
+    controller: App\Controller\User\RequestPasswordResetController

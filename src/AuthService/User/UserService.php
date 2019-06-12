@@ -23,4 +23,14 @@ class UserService
 
         return $user;
     }
+
+    /**
+     * @throws UserNotFoundByEmailException
+     */
+    public function requestResetPassword(string $email): void
+    {
+        $user = $this->findByEmail($email);
+
+        $this->repository->inactivateUser($user);
+    }
 }
