@@ -4,4 +4,6 @@ index:
 
 password_reset:
     path: /api/users/{email}/password-reset
+    methods:
+        - post
     controller: App\Framework\Controller\User\RequestPasswordResetController
