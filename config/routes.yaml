@@ -1,7 +1,7 @@
 index:
     path: /api/users/{email}
-    controller: App\Infra\Controller\User\FindUserByEmailController
+    controller: App\Framework\Controller\User\FindUserByEmailController
 
 password_reset:
     path: /api/users/{email}/password-reset
-    controller: App\Infra\Controller\User\RequestPasswordResetController
+    controller: App\Framework\Controller\User\RequestPasswordResetController

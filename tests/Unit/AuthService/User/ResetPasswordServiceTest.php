@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests\AuthService\User;
+namespace App\Tests\Unit\AuthService\User;
 
 use App\AuthService\User\ResetPasswordService;
 use App\AuthService\User\User;
-use App\Tests\AuthService\User\Fake\FakePasswordGenerator;
-use App\Tests\AuthService\User\Fake\FakeUserRepository;
+use App\Tests\Unit\AuthService\User\Fake\FakePasswordGenerator;
+use App\Tests\Unit\AuthService\User\Fake\FakeUserRepository;
 use PHPUnit\Framework\TestCase;
 
 class ResetPasswordServiceTest extends TestCase
@@ -16,7 +16,6 @@ class ResetPasswordServiceTest extends TestCase
     private const STATUS = 1;
 
     private FakeUserRepository $repository;
-
     private FakePasswordGenerator $generator;
 
     protected function setUp(): void

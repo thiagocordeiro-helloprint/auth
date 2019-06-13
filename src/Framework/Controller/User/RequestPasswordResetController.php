@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Infra\Controller\User;
+namespace App\Framework\Controller\User;
 
 use App\AuthService\User\Exception\UserNotFoundByEmailException;
 use App\AuthService\User\UserService;

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests\AuthService\Service;
+namespace App\Tests\Unit\AuthService\Service;
 
 use App\AuthService\User\Exception\UserNotFoundByEmailException;
 use App\AuthService\User\User;
 use App\AuthService\User\UserRepository;
 use App\AuthService\User\UserService;
-use App\Tests\AuthService\User\Fake\FakeUserRepository;
+use App\Tests\Unit\AuthService\User\Fake\FakeUserRepository;
 use PHPUnit\Framework\TestCase;
 
 class UserServiceTest extends TestCase

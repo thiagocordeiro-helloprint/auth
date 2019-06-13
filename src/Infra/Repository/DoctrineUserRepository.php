@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Infra\Repository;
 
@@ -40,11 +40,17 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
      */
     public function findInactive(): array
     {
-        // TODO: Implement findInactive() method.
+        return $this->findBy(['status' => 1]);
     }
 
     public function saveUsers(User ...$users): void
     {
-        // TODO: Implement saveUsers() method.
+        $entityManager = $this->getEntityManager();
+
+        foreach ($users as $user) {
+            $entityManager->persist($user);
+        }
+
+        $entityManager->flush();
     }
 }

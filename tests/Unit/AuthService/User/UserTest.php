@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests\AuthService\User;
+namespace App\Tests\Unit\AuthService\User;
 
 use App\AuthService\User\User;
 use PHPUnit\Framework\TestCase;

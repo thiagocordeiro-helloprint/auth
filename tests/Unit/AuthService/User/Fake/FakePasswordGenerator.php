@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Tests\AuthService\User\Fake;
+namespace App\Tests\Unit\AuthService\User\Fake;
 
 use App\AuthService\User\PasswordGenerator;
 

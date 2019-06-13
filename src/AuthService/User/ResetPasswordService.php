@@ -2,16 +2,22 @@
 
 namespace App\AuthService\User;
 
+use App\AuthService\User\Email\PasswordResetEmailService;
+
 class ResetPasswordService
 {
     private UserRepository $repository;
-
     private PasswordGenerator $passwordGenerator;
+    private PasswordResetEmailService $emailService;
 
-    public function __construct(UserRepository $repository, PasswordGenerator $passwordGenerator)
-    {
+    public function __construct(
+        UserRepository $repository,
+        PasswordGenerator $passwordGenerator,
+        PasswordResetEmailService $emailService
+    ) {
         $this->repository = $repository;
         $this->passwordGenerator = $passwordGenerator;
+        $this->emailService = $emailService;
     }
 
     public function resetInactiveUsers()
