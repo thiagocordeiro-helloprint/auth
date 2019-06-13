@@ -40,7 +40,7 @@ class DoctrineUserRepository extends ServiceEntityRepository implements UserRepo
      */
     public function findInactive(): array
     {
-        return $this->findBy(['status' => 1]);
+        return $this->findBy(['status' => 0]);
     }
 
     public function saveUsers(User ...$users): void

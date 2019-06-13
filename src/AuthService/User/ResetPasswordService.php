@@ -43,6 +43,6 @@ class ResetPasswordService
 
     private function sendNewPasswordViaEmail(string $rawPassword, User $user): void
     {
-        // ...
+        $this->emailService->send($user, $rawPassword);
     }
 }
