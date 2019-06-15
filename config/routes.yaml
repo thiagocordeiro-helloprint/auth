@@ -1,9 +1,11 @@
-index:
-    path: /api/users/{email}
-    controller: App\Framework\Controller\User\FindUserByEmailController
+login:
+    path: /api/users/login
+    methods:
+        - POST
+    controller: App\Framework\Controller\User\AuthenticateController
 
 password_reset:
-    path: /api/users/{email}/password-reset
+    path: /api/users/password-reset
     methods:
-        - post
+        - POST
     controller: App\Framework\Controller\User\RequestPasswordResetController

@@ -3,21 +3,29 @@
 namespace App\Framework\Controller\User;
 
 use App\AuthService\User\Exception\UserNotFoundByEmailException;
-use App\AuthService\User\UserService;
+use App\AuthService\User\UserPasswordResetService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class RequestPasswordResetController
 {
-    private UserService $service;
+    private UserPasswordResetService $service;
 
-    public function __construct(UserService $service)
+    public function __construct(UserPasswordResetService $service)
     {
         $this->service = $service;
     }
 
-    public function __invoke(string $email)
+    public function __invoke(Request $request)
     {
+        $body = json_decode($request->getContent(), true);
+        $email = $body['email'] ?? '';
+
+        if (!$email) {
+            throw new HttpException(Response::HTTP_BAD_REQUEST);
+        }
+
         try {
             $this->service->requestResetPassword($email);
         } catch (UserNotFoundByEmailException $e) {

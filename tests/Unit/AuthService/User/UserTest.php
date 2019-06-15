@@ -9,7 +9,7 @@ class UserTest extends TestCase
 {
     public function testWhenMethodDisableIsCalledThenChangeUserStatusToInactive(): void
     {
-        $user = new User('username', 'email', 1, '$2y$10$UffaUPAEJKA03G7YG76vn.fkCESo.wuaSCTYWviLWsgF7AbpPKmNC');
+        $user = new User('username', 'email', 1, '123');
 
         $user->disable();
 
@@ -18,7 +18,7 @@ class UserTest extends TestCase
 
     public function testWhenMethodEnableIsCalledThenChangeUserStatusToActive(): void
     {
-        $user = new User('username', 'email', 0, '$2y$10$UffaUPAEJKA03G7YG76vn.fkCESo.wuaSCTYWviLWsgF7AbpPKmNC');
+        $user = new User('username', 'email', 0, '123');
 
         $user->enable();
 

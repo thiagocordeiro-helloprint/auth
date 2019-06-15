@@ -9,7 +9,7 @@ class FakeUserRepository implements UserRepository
 {
     private const USERNAME = 'hellorprint';
     private const EMAIL = 'user@localhost';
-    private const PASSWORD = '$2y$10$UffaUPAEJKA03G7YG76vn.fkCESo.wuaSCTYWviLWsgF7AbpPKmNC';
+    private const PASSWORD = '$2y$10$9lbpOm1FXp2wbBk6WYfjlu0vfosuHZ693ibnbrUljEeLIz8MdNNZq';
     private const STATUS = 1;
 
     private User $user;

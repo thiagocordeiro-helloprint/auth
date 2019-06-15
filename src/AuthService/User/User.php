@@ -71,4 +71,9 @@ class User
     {
         $this->password = $newPassword;
     }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
 }

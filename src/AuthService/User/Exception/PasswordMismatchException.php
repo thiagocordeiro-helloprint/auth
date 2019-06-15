@@ -4,6 +4,6 @@ namespace App\AuthService\User\Exception;
 
 use App\AuthService\Exception\DomainException;
 
-class UserNotFoundByEmailException extends DomainException
+class PasswordMismatchException extends DomainException
 {
 }
