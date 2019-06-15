@@ -41,7 +41,6 @@ class AuthenticateController
         }
 
         return new JsonResponse([
-            'id' => $user->getId(),
             'username' => $user->getUsername(),
             'email' => $user->getEmail(),
             'active' => $user->isActive(),
